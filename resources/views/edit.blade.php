@@ -1,32 +1,51 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Actualizar</title>
+    <title>Actualizar Usuario</title>
 </head>
 <body>
 
-    <form action="{{route('curso.update', $curso)}}"  method="POST">
+    <form action="{{ route('usuario.update', $usuario) }}" method="POST">
 
         @csrf
         @method('put')
+
         <label>
-        Name:
-        <br>
-        <input name="name" type="text" value="{{old('name',$curso->name) }}">
-        <br>
+            Nombre:
+            <br>
+            <input name="name" type="text" value="{{ old('name', $usuario->name) }}">
+            <br>
         </label>
         <br>
+
         <label>
-        Descripcion:
-        <br>
-        <input name="descripcion" type="text" value="{{old('descripcion',$curso->descripcion)}}">
-        <br>
+            Número de Teléfono:
+            <br>
+            <input name="phone_number" type="text" value="{{ old('phone_number', $usuario->phone_number) }}">
+            <br>
         </label>
         <br>
-       
-        <button  type="submit">Actualizar Curso</button>
+
+        <label>
+            Código:
+            <br>
+            <input name="code" type="text" value="{{ old('code', $usuario->code) }}">
+            <br>
+        </label>
+        <br>
+
+        <label>
+            Dirección:
+            <br>
+            <input name="address" type="text" value="{{ old('address', $usuario->address) }}">
+            <br>
+        </label>
+        <br>
+
+        <button type="submit">Actualizar Usuario</button>
        
     </form>
    

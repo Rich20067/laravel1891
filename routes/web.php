@@ -16,13 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('consultas',[CursoController::class,'consultasElokuent']);
+use App\Http\Controllers\BookController;
 
-Route::get('cursos/create',[CursoController::class,'create']);
-Route::post('cursos/store', [CursoController::class,'store'])->name('curso.store');
-Route::get('cursos/listar',[CursoController::class,'index'])->name('curso.index');
+Route::get('consultas', [BookController::class, 'Elokuent']);
 
-Route::get('curso/{curso}',[CursoController::class,'show'])->name('curso.show');
-Route::put('curso/{curso}',[CursoController::class,'update'])->name('curso.update');
-Route::delete('curso/{curso}',[CursoController::class,'destroy'])->name('curso.destroy');
-Route::get('curso/{curso}/editar',[CursoController::class,'edit'])->name('curso.edit');
+Route::get('books/create', [BookController::class, 'create']);
+Route::post('books/store', [BookController::class, 'store'])->name('book.store');
+Route::get('books', [BookController::class, 'index'])->name('book.index');
+
+Route::get('book/{book}', [BookController::class, 'show'])->name('book.show');
+Route::put('book/{book}', [BookController::class, 'update'])->name('book.update');
+Route::delete('book/{book}', [BookController::class, 'destroy'])->name('book.destroy');
+Route::get('book/{book}/edit', [BookController::class, 'edit'])->name('book.edit');
